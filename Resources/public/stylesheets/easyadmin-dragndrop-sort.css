@@ -4,16 +4,27 @@
   cursor: move;
 }
 
-body.easyadmin-list-Page section.content table.table {
-    color: #999;
+.draggable {
+    cursor: move;
+    user-select: none;
 }
-
-tr.over {
-    border: 1px dashed lightgray;
+.placeholder {
+    background-color: #edf2f7;
+    border: 2px dashed #cbd5e0;
 }
-
-body.easyadmin.list th.sorted {
-    background-color: #eee !important;
-    border-color: #CCC !important;
-    border-bottom: none !important;
+.clone-list {
+    border-top: 1px solid #ccc;
+}
+.clone-table {
+    border-collapse: collapse;
+    border: none;
+}
+.clone-table td {
+    border-top: none;
+    padding: 0.5rem;
+}
+.dragging {
+    background: #fff;
+    border-top: 1px solid #ccc;
+    z-index: 999;
 }
