@@ -18,7 +18,7 @@
     "php": "~7.3.0",
     "symfony/framework-bundle": "^5.0",
     "easycorp/easyadmin-bundle": "^3.0",
-    "gedmo/doctrine-extensions": "^2.4"
+    "gedmo/doctrine-extensions": "^3.0"
   },
   "extra": {
     "branch-alias": {
