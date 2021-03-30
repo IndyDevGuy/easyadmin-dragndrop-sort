@@ -51,35 +51,4 @@ class DefaultController extends AbstractController
         return $this->json(['success'=>true]);
     }
 
-    /**
-     * Resorts an item using it's doctrine sortable property
-     *
-     * @Route("/sort/showtable/{entityClass}", name="easyadmin_dragndrop_sort_show_table")
-     * @param String $entityClass
-     * @param Integer $id
-     * @param Integer $position
-     * @throws NotFoundHttpException
-     * @throws \ReflectionException
-     * @return Response
-     *
-     */
-    public function showTableAction($entityClass)
-    {
-        $entityClassNameArray = explode('\\', $entityClass);
-        $entityClassName = end($entityClassNameArray);
-        try {
-            $rc = new ReflectionClass($entityClass);
-        } catch (\ReflectionException $error) {
-            throw new \ReflectionException('The class name '. $entityClass .'  cannot be reflected.');
-        }
-        return $this->redirectToRoute(
-            'admin',
-            array(
-                "crudAction" => "index",
-                "crudControllerFqcn" => 'App\\Controller\\Admin\\'.$entityClassName.'CrudController',
-                "sortField" => "position",
-                "sortDirection" => "ASC",
-            )
-        );
-    }
 }
