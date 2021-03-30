@@ -221,26 +221,4 @@ document.addEventListener('DOMContentLoaded', function() {
         firstCell.addEventListener('mousedown', mouseDownHandler);
     });
 
-    let tableRows = table.getElementsByTagName("tr");
-    let bodyId = table.id;
-    let splitBodyId = bodyId.split('-');
-    let entityClass = "App\\Entity\\"+splitBodyId[splitBodyId.length-1];
-    let updates = [];
-    [].forEach.call(tableRows, function (row,index) {
-        let pos = Array.prototype.indexOf.call(row.parentNode.children, row) + 1;
-        let eId = row.getAttribute('data-id');
-        if(eId != null) {
-            console.log('Entity ' + eId + ' is at position ' + pos + '. Entity Type: '+entityClass);
-            updates.push(eId+','+pos);
-            let col = table.rows[index].cells[0].innerHTML = pos.toString();
-        }
-
-    });
-
-    let xhr = new XMLHttpRequest();
-    xhr.open('POST', (encodeURI('/manage/sort/' + entityClass)));
-    xhr.onload = function () {
-
-    }
-    xhr.send(JSON.stringify(updates));
 });
